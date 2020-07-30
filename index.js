@@ -37,6 +37,7 @@ function setup() {
   sadImg = loadImage('assets/img/concern.png');
   friendsImg = loadImage('assets/img/friends.png');
   pineappleImg = loadImage('assets/img/pineapple.png');
+  pedestrianIMG = loadImage('assets/img/pedestrian.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -146,7 +147,7 @@ function gameStateF() {
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
       textSize(window.innerWidth * .07);
-      text('2019?\nSKYPE!', window.innerWidth/2, window.innerHeight/2);
+      text("NO ZOOM!", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -187,7 +188,7 @@ function gameStateF() {
       setIntervalX(() => {
           for (let x = 0; x < 500; x+=40){
             enemies.push(new Bubble({x: window.innerWidth/2, y: window.innerHeight/2}, 10, friendsImg, -4.71 + (x), 5 + x/1000));}
-  //          enemies.push(new Tracker({x: window.innerWidth/2, y: window.innerHeight/2}, 10, happyImg, -4.71, 4));
+            enemies.push(new Tracker({x: window.innerWidth/2, y: window.innerHeight/2}, 10, friendsImg, -4.71, 4));
        }, 1300, 10)
 
       setIntervalX( () => {
@@ -240,8 +241,21 @@ function gameStateF() {
 
     if ( (clockScore == 2 && am == false) ) {
       textSize(window.innerWidth * .03);
-      text('next', window.innerWidth/2, window.innerHeight/2);
+      text('PEDESTRIANS ARE NOT\nTHREATS TO YOUR LIFE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
+    }
+
+    if (((clockScore == 3 && am == false) || (clockScore == 4 && am == false)) && onlyOnceFour == false) {
+
+      
+      OnlyOnceFour = true
+
+        enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, 5))
+        enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, 5))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, 5))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, 5))
+
+
     }
 
 
