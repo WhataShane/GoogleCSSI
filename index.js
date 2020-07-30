@@ -19,6 +19,7 @@ let onlyOnceThree = false
 let onlyOnceFour = false
 let onlyOnceFive = false
 let onlyOnceSix = false
+let onlyOnceSeven = false
 
 let damageState = false
 
@@ -47,6 +48,7 @@ function setup() {
   haircutIMG = loadImage('assets/img/haircut.png')
   zoomImg = loadImage('assets/img/zoom.png')
   restaurantIMG = loadImage('assets/img/restaurant.png')
+  sleepIMG = loadImage('assets/img/sleep.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -310,6 +312,33 @@ function gameStateF() {
           
       }, 100, 25);
     }
+
+    if ( (clockScore == 9 && am == false) ) {
+      textSize(window.innerWidth * .03);
+      text("REST WELL TO BEAT YOUR COWORKERS\nTO THE OFFICE", window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
+    }
+
+    if (((clockScore == 10 && am == false) && onlyOnceSeven == false)) {
+      onlyOnceSeven = true
+      let x = 0
+      let y = 0
+      setIntervalX( () => {
+        for(let i = 0; i < 10; i++) {
+          x = Math.random() * window.innerWidth
+          y = Math.random() * window.innerHeight
+          enemies.push(new Tracker({x: x, y: y}, 30, sleepIMG, 0, 5))
+        }
+      }, 1000, 5);
+    }
+
+
+
+
+    
+
+
+
     
 
 
