@@ -20,6 +20,8 @@ let onlyOnceFour = false
 let onlyOnceFive = false
 let onlyOnceSix = false
 
+let damageState = false
+
 let onlyOnce2020 = false
 
 let enemies = []
@@ -304,7 +306,19 @@ console.log(clockScore)
       text("AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
       text("HP: "+hero.health, (window.innerWidth/2), 140);
- 
+
+      if (clockScore == 13) {
+        damageState = true;
+        hero.changeSkin(sadImg)
+
+        setIntervalX( () => {
+          for (let x = 0; x < 500; x+=50){
+            enemies.push(new Bubble({x: x*2, y: window.innerHeight}, 30, happyImg, (1/3.14)+x, 13));
+          }
+        }, 800, 12);
+
+      }
+
 
     }
 
@@ -341,7 +355,13 @@ function updateGameState() {
 
     if (hero.intersectingWithCircle(enemy) && enemy.outOfBounds() == false) {
       arr.splice(index,1);
-      hero.addHealth(1);
+
+      if (damageState == false) {
+        hero.addHealth(1);
+      } else {
+        hero.doDamage(1);
+      }
+
       return
     }
   })
