@@ -83,7 +83,7 @@ function draw() {
 
 
   if (gameStart == true) {
-/*
+
     if (decText == false) {
       setTimeout(() => {
         decText = true;
@@ -92,8 +92,8 @@ function draw() {
 
     if (decText == true) {
       background(0);
-      textSize(window.innerWidth * .25);
-      text("Dec. 31", window.innerWidth/2, window.innerHeight/2);
+      textSize(window.innerWidth * .1);
+      text("YOU'RE BACK IN", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (twentyNinteenText == false) {
@@ -117,7 +117,7 @@ function draw() {
     if (start == true) {
       background(0);
       textSize(window.innerWidth * .2);
-      text("COLLECT", window.innerWidth/2, window.innerHeight/2);
+      text("REJOICE", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (gameState == false) {
@@ -125,10 +125,10 @@ function draw() {
         gameState = true;
       }, 14800)
     }
-*/
-  //  if (gameState == true) {
+
+    if (gameState == true) {
       gameStateF();
-//   }
+   }
 
   }
 }
@@ -236,6 +236,12 @@ function gameStateF() {
         }
       }, 500, 14);
 
+    }
+
+    if ( (clockScore == 2 && am == false) ) {
+      textSize(window.innerWidth * .03);
+      text('next', window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
     }
 
 
