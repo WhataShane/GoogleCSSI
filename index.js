@@ -46,6 +46,7 @@ function setup() {
   pedestrianIMG = loadImage('assets/img/pedestrian.png')
   haircutIMG = loadImage('assets/img/haircut.png')
   zoomImg = loadImage('assets/img/zoom.png')
+  restaurantIMG = loadImage('assets/img/restaurant.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -277,9 +278,39 @@ function gameStateF() {
 
     if (((clockScore == 5 && am == false) || (clockScore == 6 && am == false)) && onlyOnceFive == false) {
       onlyOnceFive = true
-
-
+      setIntervalX( () => {
+        for (let x = 0; x < 30; x++){
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          
+        }
+      }, 500, 14);
     }
+
+    if ( (clockScore == 7 && am == false) ) {
+      textSize(window.innerWidth * .03);
+      text("INDOOR RESTAURANT SITTING:\nA LUXURY", window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
+    }
+    if (((clockScore == 8 && am == false) || (clockScore == 9 && am == false)) && onlyOnceSix == false) {
+      onlyOnceSix = true
+      let x = 0
+      let i = window.innerWidth/25
+      setIntervalX( () => {
+        x += i
+        enemies.push(new Bubble({x: x, y: 10 }, 30, restaurantIMG, -4.712, 5));
+          
+      }, 100, 25);
+      let x_dup = 0
+      setIntervalX( () => {
+        x_dup += i
+        enemies.push(new Bubble({x: window.innerWidth - x_dup, y: 10 }, 30, restaurantIMG, -4.712, 5));
+          
+      }, 100, 25);
+    }
+    
 
 
 
