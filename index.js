@@ -56,7 +56,7 @@ function setup() {
     if (startTime == true){
       clockScore += 1
     }
-  }, 1000)
+  }, 5210)
 //5210
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
@@ -148,6 +148,8 @@ function draw() {
 }
 
 function gameStateF() {
+
+  console.log(clockScore)
 
     let bgColor = [0,0,0];
     let delay = 2444;
@@ -335,11 +337,11 @@ function gameStateF() {
 
 
 
-    
 
 
 
-    
+
+
 
 
 
@@ -427,6 +429,29 @@ function gameStateF() {
 
       }
 
+      if (clockScore == 19 && onlyOnce20203 == false) {
+        onlyOnce20203 = true
+
+        setIntervalX( () => {
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
+
+setIntervalX( () => {
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, friendsImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
+
+setIntervalX( () => {
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Tracker({x: window.innerWidth/2, y: 50 }, 30, pineappleImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
+
+      }
+
 
     }
 
@@ -443,6 +468,11 @@ function canvasPressed() {
 
 function mountainKing() {
   songMK.play();
+}
+
+function finalText(){
+  textSize(50);
+  text("no one wins in 2020", (window.innerWidth/2), window.innerHeight/2);
 }
 
 function updateGameState() {
@@ -467,7 +497,7 @@ function updateGameState() {
       if (damageState == false) {
         hero.addHealth(1);
       } else {
-        hero.doDamage(1);
+        hero.doDamage(5);
       }
 
       return
