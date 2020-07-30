@@ -20,6 +20,8 @@ let onlyOnceFour = false
 let onlyOnceFive = false
 let onlyOnceSix = false
 
+let onlyOnce2020 = false
+
 let enemies = []
 let enemiesToDelte = []
 let hero
@@ -27,7 +29,6 @@ let hero
 function preload(){
   song = loadSound('assets/rbm.mp3');
   happyImg = loadImage('assets/img/happy.png');
-
   skypeImg = loadImage('assets/img/skype.png');
 }
 
@@ -44,8 +45,8 @@ function setup() {
     if (startTime == true){
       clockScore += 1
     }
-  }, 5210)
-
+  }, 1000)
+//5210
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
 
@@ -89,7 +90,7 @@ function draw() {
         decText = true;
       }, 5000)
     }
-
+/*
     if (decText == true) {
       background(0);
       textSize(window.innerWidth * .1);
@@ -125,10 +126,10 @@ function draw() {
         gameState = true;
       }, 14800)
     }
-
-    if (gameState == true) {
+*/
+//    if (gameState == true) {
       gameStateF();
-   }
+//   }
 
   }
 }
@@ -187,7 +188,6 @@ function gameStateF() {
       setIntervalX(() => {
           for (let x = 0; x < 500; x+=40){
             enemies.push(new Bubble({x: window.innerWidth/2, y: window.innerHeight/2}, 10, friendsImg, -4.71 + (x), 5 + x/1000));}
-  //          enemies.push(new Tracker({x: window.innerWidth/2, y: window.innerHeight/2}, 10, happyImg, -4.71, 4));
        }, 1300, 10)
 
       setIntervalX( () => {
@@ -247,9 +247,6 @@ function gameStateF() {
 
 
 
-
-
-
     if (am) {
       text(clockScore+":00 A.M.", (window.innerWidth/2), 50);
     }
@@ -276,6 +273,8 @@ function gameStateF() {
       onlyOnceFlag = true;
     }
 
+console.log(clockScore)
+
     if (clockScore >= 12 && newFlag) {
       background(0);
       textSize(window.innerWidth * .33);
@@ -284,6 +283,15 @@ function gameStateF() {
       text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
       background(0);
       text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
+
+
+      textSize(74);
+
+      text("AVOID EVERYTHING", (window.innerWidth/2), 60);
+      textSize(50);
+      text("HP: "+hero.health, (window.innerWidth/2), 140);
+
+
     }
 
     updateGameState();
