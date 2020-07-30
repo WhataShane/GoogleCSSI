@@ -334,6 +334,13 @@ function gameStateF() {
       }, 1000, 5);
     }
 
+    if (hero.health < 0) {
+      textSize(window.innerWidth * .1);
+      text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
+      return
+    }
+
 
 
 
@@ -428,7 +435,6 @@ function gameStateF() {
         }, 200, 100);
 
       }
-
       if (clockScore == 20 && onlyOnce20203 == false) {
         onlyOnce20203 = true
 
@@ -472,7 +478,7 @@ function mountainKing() {
 
 function finalText(){
   textSize(50);
-  text("no one wins in 2020", (window.innerWidth/2), window.innerHeight/2);
+  text("NO ONE WINS 2020", (window.innerWidth/2), window.innerHeight/2);
 }
 
 function updateGameState() {
