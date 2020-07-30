@@ -103,7 +103,7 @@ function draw() {
         decText = true;
       }, 5000)
     }
-/*
+
     if (decText == true) {
       background(0);
       textSize(window.innerWidth * .1);
@@ -139,10 +139,10 @@ function draw() {
         gameState = true;
       }, 14800)
     }
-*/
-//    if (gameState == true) {
+
+    if (gameState == true) {
       gameStateF();
-//   }
+   }
 
   }
 }
@@ -429,7 +429,7 @@ function gameStateF() {
 
       }
 
-      if (clockScore == 19 && onlyOnce20203 == false) {
+      if (clockScore == 20 && onlyOnce20203 == false) {
         onlyOnce20203 = true
 
         setIntervalX( () => {
