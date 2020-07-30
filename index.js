@@ -23,6 +23,9 @@ let onlyOnceSix = false
 let damageState = false
 
 let onlyOnce2020 = false
+let onlyOnce20202 = false
+let onlyOnce20203 = false
+let onlyOnce20204 = false
 
 let enemies = []
 let enemiesToDelte = []
@@ -42,6 +45,7 @@ function setup() {
   pineappleImg = loadImage('assets/img/pineapple.png');
   pedestrianIMG = loadImage('assets/img/pedestrian.png')
   haircutIMG = loadImage('assets/img/haircut.png')
+  zoomImg = loadImage('assets/img/zoom.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -66,6 +70,8 @@ function setIntervalX(callback, delay, repetitions) {
            window.clearInterval(intervalID);
        }
     }, delay);
+
+    return true
 }
 
 function draw() {
@@ -225,12 +231,12 @@ function gameStateF() {
 
     }
 
-    if (clockScore == 11 || (clockScore == 12 && am == false) || (clockScore == 1 && am == false)) {
+    if ((clockScore == 11 && am == true) || (clockScore == 12 && am == false) || (clockScore == 1 && am == false)) {
       textSize(window.innerWidth * .03);
       text('GO TO SUPERMARKET\nCHOOSE OWN PINEAPPLE\nNO ROTTEN INSTACART PINEAPPLE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
-//CCL
+
     if (((clockScore == 12 && am == false) || clockScore == 1) && onlyOnceThree == false) {
 
       onlyOnceThree = true
@@ -251,7 +257,7 @@ function gameStateF() {
 
     if (((clockScore == 3 && am == false) || (clockScore == 4 && am == false)) && onlyOnceFour == false) {
 
-      
+
       onlyOnceFour = true
       let x = 1
       setIntervalX( () => {
@@ -270,12 +276,9 @@ function gameStateF() {
     }
 
     if (((clockScore == 5 && am == false) || (clockScore == 6 && am == false)) && onlyOnceFive == false) {
-      setIntervalX( () => {
-        for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
-          
-        }
-      }, 3000, 2.5);
+      onlyOnceFive = true
+
+
     }
 
 
@@ -310,8 +313,6 @@ function gameStateF() {
       onlyOnceFlag = true;
     }
 
-console.log(clockScore)
-
     if (clockScore >= 12 && newFlag) {
       background(0);
       textSize(window.innerWidth * .33);
@@ -321,10 +322,9 @@ console.log(clockScore)
       background(0);
       text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
 
-
       textSize(74);
 
-      text("AVOID EVERYTHING", (window.innerWidth/2), 60);
+      text("NOW AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
       text("HP: "+hero.health, (window.innerWidth/2), 140);
 
@@ -332,11 +332,35 @@ console.log(clockScore)
         damageState = true;
         hero.changeSkin(sadImg)
 
-        setIntervalX( () => {
-          for (let x = 0; x < 500; x+=50){
-            enemies.push(new Bubble({x: x*2, y: window.innerHeight}, 30, happyImg, (1/3.14)+x, 13));
+        if (onlyOnce2020 == false){
+          onlyOnce2020 = true
+
+          onlyOnce20202 = setIntervalX( () => {
+
+                  enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .1}, 30, zoomImg, -3.14, 9));
+                  enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .3}, 30, zoomImg, -3.14, 9));
+                  enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .5}, 30, zoomImg, -3.14, 9));
+                  enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .7}, 30, zoomImg, -3.14, 9));
+                  enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .9}, 30, zoomImg, -3.14, 9));
+
+          }, 800, 5);
+
+          if (onlyOnce20202 == true) {
+            console.log('done')
           }
-        }, 800, 12);
+
+
+
+        }
+
+
+      //  enemies.push(new Bubble({x: x*2, y: window.innerHeight}, 30, happyImg, -1, 8));
+
+    /*    setIntervalX( () => {
+          for (let x = 0; x < 500; x+=50){
+            enemies.push(new Bubble({x: x*2, y: window.innerHeight}, 30, happyImg, -1, 8));
+          }
+        }, 800, 12);*/
 
       }
 
@@ -479,7 +503,6 @@ class Bubble {
     if (dist(this.x, this.y, Circle.getX(), Circle.getY()) > (this.r + Circle.getRadius()) ) {
       return false
     }
-    console.log("true")
     return true
   }
 
