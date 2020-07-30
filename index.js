@@ -39,6 +39,7 @@ function setup() {
   friendsImg = loadImage('assets/img/friends.png');
   pineappleImg = loadImage('assets/img/pineapple.png');
   pedestrianIMG = loadImage('assets/img/pedestrian.png')
+  haircutIMG = loadImage('assets/img/haircut.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -46,7 +47,7 @@ function setup() {
     if (startTime == true){
       clockScore += 1
     }
-  }, 1000)
+  }, 5210)
 //5210
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
@@ -249,15 +250,34 @@ function gameStateF() {
     if (((clockScore == 3 && am == false) || (clockScore == 4 && am == false)) && onlyOnceFour == false) {
 
       
-      OnlyOnceFour = true
-
-        enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, 5))
-        enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, 5))
-        enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, 5))
-        enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, 5))
-
+      onlyOnceFour = true
+      let x = 1
+      setIntervalX( () => {
+        x += 1
+        enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, (5 + x)/2))
+      }, 300, 18);
 
     }
+    if ( (clockScore == 5 && am == false) ) {
+      textSize(window.innerWidth * .03);
+      text('NO BACK-ALLEY HAIRCUTS', window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
+    }
+
+    if (((clockScore == 5 && am == false) || (clockScore == 6 && am == false)) && onlyOnceFive == false) {
+      setIntervalX( () => {
+        for (let x = 0; x < 30; x++){
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          
+        }
+      }, 3000, 2.5);
+    }
+
+
+
 
 
 
