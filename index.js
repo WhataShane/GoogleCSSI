@@ -248,13 +248,12 @@ function gameStateF() {
 
     if (((clockScore == 3 && am == false) || (clockScore == 4 && am == false)) && onlyOnceFour == false) {
 
-      
-      OnlyOnceFour = true
+      onlyOnceFour = true
 
-        enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, 5))
-        enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, 5))
-        enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, 5))
-        enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, 5))
+      enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, 5))
+      enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, 5))
+      enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, 5))
+      enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, 5))
 
 
     }
@@ -305,7 +304,7 @@ console.log(clockScore)
       text("AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
       text("HP: "+hero.health, (window.innerWidth/2), 140);
-
+ 
 
     }
 
