@@ -166,7 +166,7 @@ function draw() {
 
 function gameStateF() {
 
-  console.log(clockScore)
+
 
     let bgColor = [0,0,0];
     let delay = 2444;
@@ -565,7 +565,7 @@ function updateGameState() {
         if (!isMobile) {
           hero.doDamage(5);
         } else {
-          hero.doDamage(1);
+          hero.doDamage(2);
         }
 
       }
@@ -779,22 +779,11 @@ class Hero extends Bubble {
     }
 
     if (isMobile) {
-      this.speed = 15;
-
-
-
+      this.speed = 14;
       this.angle = Math.atan2(mouseY - this.getY(), mouseX - this.getX());
-
-  //    if (this.angle < .1 & this.angle > -.1) {
-
-  //    } else {
-        this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
-        this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
-        this.update({x: this.neX, y: this.neY})
-  //    }
-
-
-
+      this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
+      this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
+      this.update({x: this.neX, y: this.neY})
     }
 
   }
