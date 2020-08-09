@@ -175,6 +175,11 @@ function gameStateF() {
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
       textSize(window.innerWidth * .07);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .15);
+      }
+
       text("NO ZOOM!", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -205,6 +210,12 @@ function gameStateF() {
 
     if ((clockScore == 8 || clockScore == 9 || clockScore == 10) && (am == true)) {
       textSize(window.innerWidth * .07);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .15);
+      }
+
+
       text('SEE FRIENDS!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -251,6 +262,12 @@ function gameStateF() {
 
     if ((clockScore == 11 && am == true) || (clockScore == 12 && am == false) || (clockScore == 1 && am == false)) {
       textSize(window.innerWidth * .03);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .055);
+      }
+
+
       text('GO TO SUPERMARKET\nCHOOSE OWN PINEAPPLE\nNO ROTTEN INSTACART PINEAPPLE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -269,6 +286,12 @@ function gameStateF() {
 
     if ( (clockScore == 2 && am == false) ) {
       textSize(window.innerWidth * .03);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .08);
+      }
+
+
       text('PEDESTRIANS ARE NOT\nTHREATS TO YOUR LIFE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -289,6 +312,12 @@ function gameStateF() {
     }
     if ( (clockScore == 5 && am == false) ) {
       textSize(window.innerWidth * .03);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .07);
+      }
+
+
       text('NO BACK-ALLEY HAIRCUTS', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -305,6 +334,11 @@ function gameStateF() {
 
     if ( (clockScore == 7 && am == false) ) {
       textSize(window.innerWidth * .03);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .07);
+      }
+
       text("INDOOR RESTAURANT SITTING:\nA LUXURY", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -328,6 +362,11 @@ function gameStateF() {
 
     if ( (clockScore == 9 && am == false) ) {
       textSize(window.innerWidth * .03);
+
+      if (isMobile) {
+        textSize(window.innerWidth * .05);
+      }
+
       text("REST WELL TO BEAT YOUR COWORKERS\nTO THE OFFICE", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
@@ -403,6 +442,10 @@ function gameStateF() {
       text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
 
       textSize(74);
+
+      if(isMobile){
+        textSize(window.innerWidth * .07);
+      }
 
       text("NOW AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
@@ -724,7 +767,7 @@ class Hero extends Bubble {
     }
 
     if (isMobile) {
-      this.speed = 10;
+      this.speed = 13;
       this.angle = Math.atan2(mouseY - this.getY(), mouseX - this.getX());
 
       this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
