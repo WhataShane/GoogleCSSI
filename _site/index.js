@@ -190,13 +190,13 @@ function gameStateF() {
 
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
         }
       }, 500, 5);
 
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
         }
       }, 500, 5);
 
@@ -326,17 +326,17 @@ function gameStateF() {
       onlyOnceFive = true
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 6));
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 6));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 4));
+
         }
-      }, 500, 10);
+      }, 600, 8);
     }
 
     if ( (clockScore == 7 && am == false) ) {
       textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(window.innerWidth * .07);
+        textSize(window.innerWidth * .06);
       }
 
       text("INDOOR RESTAURANT SITTING:\nA LUXURY", window.innerWidth/2, window.innerHeight/2);
