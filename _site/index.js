@@ -32,6 +32,15 @@ let enemies = []
 let enemiesToDelte = []
 let hero
 
+let isMobile = false
+
+//anti-IOS scroll code
+function preventBehavior(e) {
+    e.preventDefault();
+};
+document.addEventListener("touchmove", preventBehavior, {passive: false});
+//end
+
 function preload(){
   song = loadSound('assets/rbm.mp3');
   happyImg = loadImage('assets/img/happy.png');
@@ -39,6 +48,10 @@ function preload(){
 }
 
 function setup() {
+
+  if ((window.innerWidth < 780)){
+    isMobile = true
+   }
 
   songMK = loadSound('assets/mk.mp3');
   sadImg = loadImage('assets/img/concern.png');
@@ -103,7 +116,7 @@ function draw() {
         decText = true;
       }, 5000)
     }
-/*
+
     if (decText == true) {
       background(0);
       textSize(window.innerWidth * .1);
@@ -139,10 +152,10 @@ function draw() {
         gameState = true;
       }, 14800)
     }
-*/
-//    if (gameState == true) {
+
+    if (gameState == true) {
       gameStateF();
-//   }
+   }
 
   }
 }
@@ -284,12 +297,10 @@ function gameStateF() {
       onlyOnceFive = true
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
-          enemies.push(new Bubble({x: 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 8));
-          enemies.push(new Bubble({x: 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 8));
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 6));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: 50 }, 30, haircutIMG, (1/3.14)+x, 6));
         }
-      }, 500, 14);
+      }, 500, 10);
     }
 
     if ( (clockScore == 7 && am == false) ) {
@@ -332,6 +343,13 @@ function gameStateF() {
           enemies.push(new Tracker({x: x, y: y}, 30, sleepIMG, 0, 5))
         }
       }, 1000, 5);
+    }
+
+    if (hero.health < 0) {
+      textSize(window.innerWidth * .1);
+      text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
+      textSize(55);
+      return
     }
 
 
@@ -428,8 +446,7 @@ function gameStateF() {
         }, 200, 100);
 
       }
-
-      if (clockScore == 19 && onlyOnce20203 == false) {
+      if (clockScore == 20 && onlyOnce20203 == false) {
         onlyOnce20203 = true
 
         setIntervalX( () => {
@@ -472,7 +489,7 @@ function mountainKing() {
 
 function finalText(){
   textSize(50);
-  text("no one wins in 2020", (window.innerWidth/2), window.innerHeight/2);
+  text("NO ONE WINS 2020", (window.innerWidth/2), window.innerHeight/2);
 }
 
 function updateGameState() {
@@ -644,6 +661,9 @@ class Hero extends Bubble {
     this.health = 0
     this.history = []
     this.count = 0
+
+    this.neX = 0
+    this.neY = 0
   }
 
   update(cords) {
@@ -701,6 +721,17 @@ class Hero extends Bubble {
 
     if (keyIsDown(DOWN_ARROW)) {
       this.update({x:this.getCords().x, y:this.getCords().y + 6.9})
+    }
+
+    if (isMobile) {
+      this.speed = 10;
+      this.angle = Math.atan2(mouseY - this.getY(), mouseX - this.getX());
+
+      this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
+      this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
+
+      this.update({x: this.neX, y: this.neY})
+
     }
 
   }
