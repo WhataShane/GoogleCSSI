@@ -9,9 +9,11 @@ body {
   padding:0px;
   background-color: black;
   overflow: hidden;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
-
 
 .hu {
   font-size: 400px;
