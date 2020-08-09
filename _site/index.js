@@ -561,7 +561,13 @@ function updateGameState() {
       if (damageState == false) {
         hero.addHealth(1);
       } else {
-        hero.doDamage(5);
+
+        if (!isMobile) {
+          hero.doDamage(5);
+        } else {
+          hero.doDamage(1);
+        }
+
       }
 
       return
