@@ -8,12 +8,10 @@ let rbmPlaying = false
 let start = false
 let gameState = false
 let clockScore = 5
-let startTime = false
+let startTime = false;
 let am = true
-let isTwentyTwenty = false
+let isTwentyTwenty = false;
 let cnv
-
-let isMobile = false
 
 let onlyOnceOne = false
 let onlyOnceTwo = false
@@ -41,15 +39,16 @@ function preload(){
 }
 
 function setup() {
+
   songMK = loadSound('assets/mk.mp3');
   sadImg = loadImage('assets/img/concern.png');
   friendsImg = loadImage('assets/img/friends.png');
   pineappleImg = loadImage('assets/img/pineapple.png');
-  pedestrianIMG = loadImage('assets/img/pedestrian.png');
-  haircutIMG = loadImage('assets/img/haircut.png');
-  zoomImg = loadImage('assets/img/zoom.png');
-  restaurantIMG = loadImage('assets/img/restaurant.png');
-  sleepIMG = loadImage('assets/img/sleep.png');
+  pedestrianIMG = loadImage('assets/img/pedestrian.png')
+  haircutIMG = loadImage('assets/img/haircut.png')
+  zoomImg = loadImage('assets/img/zoom.png')
+  restaurantIMG = loadImage('assets/img/restaurant.png')
+  sleepIMG = loadImage('assets/img/sleep.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -57,13 +56,11 @@ function setup() {
     if (startTime == true){
       clockScore += 1
     }
-  }, 5210);
-
-   if ((window.innerWidth < 780)){
-    isMobile = true
-   }
-
+  }, 5210)
+//5210
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
+
+
 }
 
 function setIntervalX(callback, delay, repetitions) {
@@ -81,6 +78,8 @@ function setIntervalX(callback, delay, repetitions) {
 }
 
 function draw() {
+
+
   background(0);
   fill(255);
   textAlign(CENTER, CENTER);
@@ -339,6 +338,7 @@ function gameStateF() {
       textSize(window.innerWidth * .1);
       text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
+      return
     }
 
 
@@ -572,17 +572,19 @@ class Bubble {
   }
 
   update(cords) {
-    this.x = cords.x
-    this.y = cords.y
+    this.x = cords.x;
+    this.y = cords.y;
   }
 
   move() {
+
     this.x = this.getX() + (Math.cos(this.angle) * this.speed)
     this.y = this.getY() + (Math.sin(this.angle) * this.speed)
   }
 
   changeSkin(img) {
     this.imageSkin = img
+
   }
 
   render() {
@@ -705,12 +707,6 @@ class Hero extends Bubble {
 
     if (keyIsDown(DOWN_ARROW)) {
       this.update({x:this.getCords().x, y:this.getCords().y + 6.9})
-    }
-
-    if (isMobile == true){
-      //change angle to atan from tracker
-      //then call this.move towards angle
-
     }
 
   }
