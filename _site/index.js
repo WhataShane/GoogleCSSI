@@ -773,7 +773,7 @@ class Hero extends Bubble {
     }
 
     if (isMobile) {
-      this.speed = 13;
+      this.speed = 15;
 
 
 
