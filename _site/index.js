@@ -781,9 +781,21 @@ class Hero extends Bubble {
     if (isMobile) {
       this.speed = 14;
       this.angle = Math.atan2(mouseY - this.getY(), mouseX - this.getX());
-      this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
-      this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
-      this.update({x: this.neX, y: this.neY})
+
+
+      //prevents stuttering hero
+      //only update location if mouse has moved more than 7 units
+      if ( ((this.getX() >= (mouseX-7))
+      && (this.getX() <= (mouseX+7) ))
+      && (this.getY() >= (mouseY-7))
+      && (this.getY() <= (mouseY+7) )) {
+      } else {
+        this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
+        this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
+        this.update({x: this.neX, y: this.neY})
+      }
+
+
     }
 
   }
