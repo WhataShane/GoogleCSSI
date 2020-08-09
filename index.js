@@ -34,14 +34,6 @@ let enemies = []
 let enemiesToDelte = []
 let hero
 
-
-//anti-IOS scroll code
-function preventBehavior(e) {
-    e.preventDefault();
-};
-document.addEventListener("touchmove", preventBehavior, {passive: false});
-//end
-
 function preload(){
   song = loadSound('assets/rbm.mp3');
   happyImg = loadImage('assets/img/happy.png');
