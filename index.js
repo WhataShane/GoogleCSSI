@@ -34,6 +34,8 @@ let hero
 
 let isMobile = false
 
+
+
 //anti-IOS scroll code
 function preventBehavior(e) {
     e.preventDefault();
@@ -53,6 +55,8 @@ function setup() {
     isMobile = true
    }
 
+
+
   songMK = loadSound('assets/mk.mp3');
   sadImg = loadImage('assets/img/concern.png');
   friendsImg = loadImage('assets/img/friends.png');
@@ -70,7 +74,7 @@ function setup() {
       clockScore += 1
     }
   }, 5210)
-//5210
+
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
 
@@ -707,6 +711,8 @@ class Hero extends Bubble {
 
     this.neX = 0
     this.neY = 0
+
+
   }
 
   update(cords) {
@@ -768,12 +774,20 @@ class Hero extends Bubble {
 
     if (isMobile) {
       this.speed = 13;
+
+
+
       this.angle = Math.atan2(mouseY - this.getY(), mouseX - this.getX());
 
-      this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
-      this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
+  //    if (this.angle < .1 & this.angle > -.1) {
 
-      this.update({x: this.neX, y: this.neY})
+  //    } else {
+        this.neX = this.getX() + (Math.cos(this.angle) * this.speed)
+        this.neY = this.getY() + (Math.sin(this.angle) * this.speed)
+        this.update({x: this.neX, y: this.neY})
+  //    }
+
+
 
     }
 
