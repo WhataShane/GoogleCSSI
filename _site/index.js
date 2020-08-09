@@ -34,7 +34,6 @@ let enemies = []
 let enemiesToDelte = []
 let hero
 
-
 //anti-IOS scroll code
 function preventBehavior(e) {
     e.preventDefault();
