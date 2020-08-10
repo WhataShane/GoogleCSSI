@@ -28,6 +28,8 @@ let onlyOnce20202 = false
 let onlyOnce20203 = false
 let onlyOnce20204 = false
 
+let onlyOnceEndScreen = false
+
 let enemies = []
 let enemiesToDelte = []
 let hero
@@ -391,6 +393,19 @@ function gameStateF() {
     if (hero.health < 0) {
       textSize(window.innerWidth * .1);
       text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
+
+      setTimeout(() => {
+        onlyOnceEndScreen = true
+      }, 3950)
+
+
+      if (onlyOnceEndScreen) {
+        background(0);
+        textSize(window.innerWidth * .085);
+        text("WEAR A MASK,\nWIN 2021\n#ONEDAYIN2019\nSPREAD THIS MESSAGE", window.innerWidth/2, window.innerHeight/2);
+      }
+
+
       textSize(55);
       return
     }
