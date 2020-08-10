@@ -401,8 +401,8 @@ function gameStateF() {
 
       if (onlyOnceEndScreen) {
         background(0);
-        textSize(window.innerWidth * .072);
-        text("WEAR A MASK,\nWIN 2021.\n\n#OneDayIn2019\nSPREAD THIS MESSAGE", window.innerWidth/2, window.innerHeight/2);
+        textSize(window.innerWidth * .07);
+        text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\nSPREAD THIS MESSAGE", window.innerWidth/2, window.innerHeight/2);
       }
 
 
