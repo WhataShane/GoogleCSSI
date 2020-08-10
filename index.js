@@ -401,8 +401,17 @@ function gameStateF() {
 
       if (onlyOnceEndScreen) {
         background(0);
-        textSize(window.innerWidth * .065);
-        text("WEAR A MASK,\nWIN 2021.\n#WearMaskWin21\nspread the word,\nnot the virus", window.innerWidth/2, window.innerHeight/2);
+
+
+        if (isMobile){
+          textSize(window.innerWidth * .025);
+          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\nSPREAD THE WORD\n(not the virus)", window.innerWidth/2, window.innerHeight/2);
+        } else {
+          textSize(window.innerWidth * .065);
+          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\nSPREAD THE WORD\n(not the virus)", window.innerWidth/2, window.innerHeight/2);
+        }
+
+
       }
 
 
