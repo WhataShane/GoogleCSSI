@@ -396,13 +396,13 @@ function gameStateF() {
 
       setTimeout(() => {
         onlyOnceEndScreen = true
-      }, 3950)
+      }, 3650)
 
 
       if (onlyOnceEndScreen) {
         background(0);
-        textSize(window.innerWidth * .085);
-        text("WEAR A MASK,\nWIN 2021\n#ONEDAYIN2019\nSPREAD THIS MESSAGE", window.innerWidth/2, window.innerHeight/2);
+        textSize(window.innerWidth * .072);
+        text("WEAR A MASK,\nWIN 2021.\n\n#OneDayIn2019\nSPREAD THIS MESSAGE", window.innerWidth/2, window.innerHeight/2);
       }
 
 
