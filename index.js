@@ -34,8 +34,6 @@ let hero
 
 let isMobile = false
 
-let screenWidth = 0
-let screenHeight = 0
 
 
 //anti-IOS scroll code
@@ -53,15 +51,12 @@ function preload(){
 
 function setup() {
 
-  screenWidth = window.innerWidth
-  screenHeight = window.innerHeight
-
-  //mobile check
-  if ((screenWidth < 780)){
+  if ((window.innerWidth < 780)){
     isMobile = true
    }
 
-  //loading assets
+
+
   songMK = loadSound('assets/mk.mp3');
   sadImg = loadImage('assets/img/concern.png');
   friendsImg = loadImage('assets/img/friends.png');
@@ -71,44 +66,44 @@ function setup() {
   zoomImg = loadImage('assets/img/zoom.png')
   restaurantIMG = loadImage('assets/img/restaurant.png')
   sleepIMG = loadImage('assets/img/sleep.png')
-  //end
 
-  cnv = createCanvas(screenWidth, screenHeight);
+  cnv = createCanvas(window.innerWidth, window.innerHeight);
 
-  //the global clock, all time based events are tied to the tick of clockScore
-  //incremented every 5.21 seconds
   setInterval(() => {
     if (startTime == true){
       clockScore += 1
     }
   }, 5210)
 
-   hero = new Hero({x: (screenWidth/2), y:screenHeight-200}, 30, happyImg);
+   hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
+
+
 }
 
-//utility function, provides a param to limit the number of setInterval repetitions
 function setIntervalX(callback, delay, repetitions) {
     let x = 0;
     let intervalID = window.setInterval(function () {
+
        callback();
+
        if (++x === repetitions) {
            window.clearInterval(intervalID);
        }
     }, delay);
+
     return true
 }
 
 function draw() {
 
-  //************** INTRO SEQUENCE **************
 
   background(0);
   fill(255);
   textAlign(CENTER, CENTER);
   textFont("Futura");
 
-  textSize(screenWidth * .1);
-  text('Tap to begin', screenWidth/2, screenHeight/2);
+  textSize(window.innerWidth * .1);
+  text('Tap to begin', window.innerWidth/2, window.innerHeight/2);
 
   cnv.mousePressed(canvasPressed);
 
@@ -116,6 +111,7 @@ function draw() {
     background(0);
     gameStart = true;
   }
+
 
   if (gameStart == true) {
 
@@ -127,8 +123,8 @@ function draw() {
 
     if (decText == true) {
       background(0);
-      textSize(screenWidth * .1);
-      text("YOU'RE BACK IN", screenWidth/2, screenHeight/2);
+      textSize(window.innerWidth * .1);
+      text("YOU'RE BACK IN", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (twentyNinteenText == false) {
@@ -139,8 +135,8 @@ function draw() {
 
     if (twentyNinteenText == true) {
       background(0);
-      textSize(screenWidth * .36);
-      text("2019", screenWidth/2, screenHeight/2);
+      textSize(window.innerWidth * .36);
+      text("2019", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (start == false) {
@@ -151,8 +147,8 @@ function draw() {
 
     if (start == true) {
       background(0);
-      textSize(screenWidth * .2);
-      text("REJOICE", screenWidth/2, screenHeight/2);
+      textSize(window.innerWidth * .2);
+      text("REJOICE", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (gameState == false) {
@@ -165,14 +161,12 @@ function draw() {
       gameStateF();
    }
 
-   //************** END INTRO SEQUENCE **************
-
   }
 }
 
 function gameStateF() {
 
-    //************** GAMEPLAY **************
+
 
     let bgColor = [0,0,0];
     let delay = 2444;
@@ -184,13 +178,13 @@ function gameStateF() {
     textSize(55);
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
-      textSize(screenWidth * .07);
+      textSize(window.innerWidth * .07);
 
       if (isMobile) {
-        textSize(screenWidth * .15);
+        textSize(window.innerWidth * .15);
       }
 
-      text("NO ZOOM!", screenWidth/2, screenHeight/2);
+      text("NO ZOOM!", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -200,31 +194,33 @@ function gameStateF() {
 
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: screenWidth - 50, y: screenHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
+          enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
         }
       }, 500, 5);
 
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: 50, y: screenHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
+          enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, skypeImg, (1/3.14)+x, 6));
         }
       }, 500, 5);
 
       setIntervalX( () => {
         for (let x = 0; x < 50; x++){
-          enemies.push(new Bubble({x: screenWidth / 2, y: screenHeight}, 30, skypeImg, (1/3.14)+x, 13));
+          enemies.push(new Bubble({x: window.innerWidth / 2, y: window.innerHeight}, 30, skypeImg, (1/3.14)+x, 13));
         }
       }, 800, 3);
+
     }
 
     if ((clockScore == 8 || clockScore == 9 || clockScore == 10) && (am == true)) {
-      textSize(screenWidth * .07);
+      textSize(window.innerWidth * .07);
 
       if (isMobile) {
-        textSize(screenWidth * .15);
+        textSize(window.innerWidth * .15);
       }
 
-      text('SEE FRIENDS!', screenWidth/2, screenHeight/2);
+
+      text('SEE FRIENDS!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -234,26 +230,26 @@ function gameStateF() {
 
       setIntervalX(() => {
           for (let x = 0; x < 500; x+=40){
-            enemies.push(new Bubble({x: screenWidth/2, y: screenHeight/2}, 10, friendsImg, -4.71 + (x), 5 + x/1000));}
-            enemies.push(new Tracker({x: screenWidth/2, y: screenHeight/2}, 10, friendsImg, -4.71, 4));
+            enemies.push(new Bubble({x: window.innerWidth/2, y: window.innerHeight/2}, 10, friendsImg, -4.71 + (x), 5 + x/1000));}
+            enemies.push(new Tracker({x: window.innerWidth/2, y: window.innerHeight/2}, 10, friendsImg, -4.71, 4));
        }, 1300, 10)
 
       setIntervalX( () => {
         for (let x = 0; x < 50; x++){
-          enemies.push(new Bubble({x: screenWidth / 2, y: screenHeight}, 30, friendsImg, (1/3.14)+x, 4));
+          enemies.push(new Bubble({x: window.innerWidth / 2, y: window.innerHeight}, 30, friendsImg, (1/3.14)+x, 4));
         }
       }, 1000, 7);
 
       setIntervalX( () => {
         for (let x = 0; x < 50; x++){
-          enemies.push(new Bubble({x: screenWidth / 2, y: screenHeight}, 30, friendsImg, (1/3.14)+x, 13));
+          enemies.push(new Bubble({x: window.innerWidth / 2, y: window.innerHeight}, 30, friendsImg, (1/3.14)+x, 13));
         }
       }, 200, 9);
 
 
       setIntervalX( () => {
         for (let x = 0; x < 500; x+=50){
-          enemies.push(new Bubble({x: x*2, y: screenHeight}, 30, happyImg, (1/3.14)+x, 13));
+          enemies.push(new Bubble({x: x*2, y: window.innerHeight}, 30, happyImg, (1/3.14)+x, 13));
         }
       }, 800, 12);
 
@@ -265,16 +261,18 @@ function gameStateF() {
         otherOnlyOnce = true;
         mountainKing();
       }
+
     }
 
     if ((clockScore == 11 && am == true) || (clockScore == 12 && am == false) || (clockScore == 1 && am == false)) {
-      textSize(screenWidth * .03);
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(screenWidth * .055);
+        textSize(window.innerWidth * .055);
       }
 
-      text('GO TO SUPERMARKET\nCHOOSE OWN PINEAPPLE\nNO ROTTEN INSTACART PINEAPPLE', screenWidth/2, screenHeight/2);
+
+      text('GO TO SUPERMARKET\nCHOOSE OWN PINEAPPLE\nNO ROTTEN INSTACART PINEAPPLE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -284,20 +282,21 @@ function gameStateF() {
 
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: screenWidth - 50 - (Math.random() * 150), y: screenHeight - 50 }, 30, pineappleImg, (1/3.14)+x, 8));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, pineappleImg, (1/3.14)+x, 8));
         }
       }, 500, 14);
 
     }
 
     if ( (clockScore == 2 && am == false) ) {
-      textSize(screenWidth * .03);
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(screenWidth * .08);
+        textSize(window.innerWidth * .08);
       }
 
-      text('PEDESTRIANS ARE NOT\nTHREATS TO YOUR LIFE', screenWidth/2, screenHeight/2);
+
+      text('PEDESTRIANS ARE NOT\nTHREATS TO YOUR LIFE', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -308,21 +307,22 @@ function gameStateF() {
       let x = 1
       setIntervalX( () => {
         x += 1
-        enemies.push(new Tracker({x:10, y:screenHeight/2}, 30, pedestrianIMG, 0, (5+x)/2))
-        enemies.push(new Tracker({x:screenWidth -10, y:screenHeight/2}, 30, pedestrianIMG, -1, (5+x)/2))
-        enemies.push(new Tracker({x:screenWidth/2, y:10}, 30, pedestrianIMG, -4.712, (5+x)/2))
-        enemies.push(new Tracker({x:screenWidth/2, y:screenHeight - 10}, 30, pedestrianIMG, -1, (5 + x)/2))
+        enemies.push(new Tracker({x:10, y:window.innerHeight/2}, 30, pedestrianIMG, 0, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth -10, y:window.innerHeight/2}, 30, pedestrianIMG, -1, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:10}, 30, pedestrianIMG, -4.712, (5+x)/2))
+        enemies.push(new Tracker({x:window.innerWidth/2, y:window.innerHeight - 10}, 30, pedestrianIMG, -1, (5 + x)/2))
       }, 300, 18);
 
     }
-    if ((clockScore == 5 && am == false)) {
-      textSize(screenWidth * .03);
+    if ( (clockScore == 5 && am == false) ) {
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(screenWidth * .07);
+        textSize(window.innerWidth * .07);
       }
 
-      text('NO BACK-ALLEY HAIRCUTS', screenWidth/2, screenHeight/2);
+
+      text('NO BACK-ALLEY HAIRCUTS', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -330,26 +330,27 @@ function gameStateF() {
       onlyOnceFive = true
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: screenWidth - 50 - (Math.random() * 150), y: screenHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 4));
+          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 4));
+
         }
       }, 600, 8);
     }
 
     if ( (clockScore == 7 && am == false) ) {
-      textSize(screenWidth * .03);
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(screenWidth * .06);
+        textSize(window.innerWidth * .06);
       }
 
-      text("INDOOR RESTAURANT SITTING:\nA LUXURY", screenWidth/2, screenHeight/2);
+      text("INDOOR RESTAURANT SITTING:\nA LUXURY", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
     if (((clockScore == 8 && am == false) || (clockScore == 9 && am == false)) && onlyOnceSix == false) {
       onlyOnceSix = true
       let x = 0
-      let i = screenWidth/25
+      let i = window.innerWidth/25
       setIntervalX( () => {
         x += i
         enemies.push(new Bubble({x: x, y: 10 }, 30, restaurantIMG, -4.712, 5));
@@ -358,19 +359,19 @@ function gameStateF() {
       let x_dup = 0
       setIntervalX( () => {
         x_dup += i
-        enemies.push(new Bubble({x: screenWidth - x_dup, y: 10 }, 30, restaurantIMG, -4.712, 5));
+        enemies.push(new Bubble({x: window.innerWidth - x_dup, y: 10 }, 30, restaurantIMG, -4.712, 5));
 
       }, 100, 25);
     }
 
     if ( (clockScore == 9 && am == false) ) {
-      textSize(screenWidth * .03);
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(screenWidth * .05);
+        textSize(window.innerWidth * .05);
       }
 
-      text("REST WELL TO BEAT YOUR COWORKERS\nTO THE OFFICE", screenWidth/2, screenHeight/2);
+      text("REST WELL TO BEAT YOUR COWORKERS\nTO THE OFFICE", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -380,38 +381,53 @@ function gameStateF() {
       let y = 0
       setIntervalX( () => {
         for(let i = 0; i < 10; i++) {
-          x = Math.random() * screenWidth
-          y = Math.random() * screenHeight
+          x = Math.random() * window.innerWidth
+          y = Math.random() * window.innerHeight
           enemies.push(new Tracker({x: x, y: y}, 30, sleepIMG, 0, 5))
         }
       }, 1000, 5);
     }
 
     if (hero.health < 0) {
-      textSize(screenWidth * .1);
-      text("NO ONE WINS 2020", screenWidth/2, screenHeight/2);
+      textSize(window.innerWidth * .1);
+      text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
+      return
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     if (am) {
-      text(clockScore+":00 A.M.", (screenWidth/2), 50);
+      text(clockScore+":00 A.M.", (window.innerWidth/2), 50);
     }
 
     if (!am  && clockScore < 9 || clockScore == 12) {
-      text(clockScore+":00 P.M.", (screenWidth/2), 50);
+      text(clockScore+":00 P.M.", (window.innerWidth/2), 50);
     }
 
     if (!am && clockScore > 8 && clockScore != 12) {
-      text(clockScore+":00 P.M.", (screenWidth/2) + Math.floor(Math.random()*2), 50);
+      text(clockScore+":00 P.M.", (window.innerWidth/2) + Math.floor(Math.random()*2), 50);
     }
 
     textSize(45);
 
 
-    text("2019", (screenWidth/2), 123);
+    text("2019", (window.innerWidth/2), 123);
     textSize(30);
-    text("Score: "+hero.health, (screenWidth/2), 185);
+    text("Score: "+hero.health, (window.innerWidth/2), 185);
 
 
     if (clockScore > 12 && onlyOnceFlag == false) {
@@ -422,22 +438,22 @@ function gameStateF() {
 
     if (clockScore >= 12 && newFlag) {
       background(0);
-      textSize(screenWidth * .33);
-      text("2020", screenWidth/2 + Math.floor(Math.random()*30), screenHeight/2  + Math.floor(Math.random()*30));
+      textSize(window.innerWidth * .33);
+      text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
       background(0);
-      text("2020", screenWidth/2 + Math.floor(Math.random()*30), screenHeight/2  + Math.floor(Math.random()*30));
+      text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
       background(0);
-      text("2020", screenWidth/2 + Math.floor(Math.random()*30), screenHeight/2  + Math.floor(Math.random()*30));
+      text("2020", window.innerWidth/2 + Math.floor(Math.random()*30), window.innerHeight/2  + Math.floor(Math.random()*30));
 
       textSize(74);
 
       if(isMobile){
-        textSize(screenWidth * .07);
+        textSize(window.innerWidth * .07);
       }
 
-      text("NOW AVOID EVERYTHING", (screenWidth/2), 60);
+      text("NOW AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
-      text("HP: "+hero.health, (screenWidth/2), 140);
+      text("HP: "+hero.health, (window.innerWidth/2), 140);
 
       if (clockScore == 13) {
         damageState = true;
@@ -447,18 +463,18 @@ function gameStateF() {
           onlyOnce2020 = true
 
           setIntervalX( () => {
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .1}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .3}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .5}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .7}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .9}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .1}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .3}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .5}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .7}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .9}, 30, zoomImg, -3.14, 9));
           }, 900, 100);
 
           setIntervalX( () => {
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .2}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .4}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .6}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: screenWidth - 10, y: screenHeight * .8}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .2}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .4}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .6}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .8}, 30, zoomImg, -3.14, 9));
           }, 1350, 100);
 
          }
@@ -469,11 +485,11 @@ function gameStateF() {
         onlyOnce20202 = true
 
         setIntervalX( () => {
-          enemies.push(new Bubble({x: screenWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: screenWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: screenWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: screenWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: screenWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
         }, 200, 100);
 
       }
@@ -481,22 +497,22 @@ function gameStateF() {
         onlyOnce20203 = true
 
         setIntervalX( () => {
-          for (let x = 0; x < 70; x++){
-            enemies.push(new Bubble({x: screenWidth - 50, y: screenHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
-          }
-          }, 500, 5);
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
 
-          setIntervalX( () => {
-            for (let x = 0; x < 70; x++){
-               enemies.push(new Bubble({x: 50, y: screenHeight - 50 }, 30, friendsImg, (1/3.14)+x, 15));
-          }
-          }, 500, 5);
+setIntervalX( () => {
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, friendsImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
 
-          setIntervalX( () => {
-              for (let x = 0; x < 70; x++){
-                enemies.push(new Tracker({x: screenWidth/2, y: 50 }, 30, pineappleImg, (1/3.14)+x, 15));
-            }
-          }, 500, 5);
+setIntervalX( () => {
+  for (let x = 0; x < 70; x++){
+    enemies.push(new Tracker({x: window.innerWidth/2, y: 50 }, 30, pineappleImg, (1/3.14)+x, 15));
+  }
+}, 500, 5);
 
       }
 
@@ -520,7 +536,7 @@ function mountainKing() {
 
 function finalText(){
   textSize(50);
-  text("NO ONE WINS 2020", (screenWidth/2), screenHeight/2);
+  text("NO ONE WINS 2020", (window.innerWidth/2), window.innerHeight/2);
 }
 
 function updateGameState() {
@@ -554,7 +570,7 @@ function updateGameState() {
 
       }
 
-
+      return
     }
   })
 
@@ -567,7 +583,7 @@ function updateGameState() {
 
 class Bubble {
 
-  constructor(cords = {x: screenWidth, y: screenWidth}, r, imgSkin = null, theta = 0, speed = 1){
+  constructor(cords = {x: window.innerWidth, y: window.innerWidth}, r, imgSkin = null, theta = 0, speed = 1){
     this.x = cords.x;
     this.y = cords.y;
     this.r = r;
@@ -603,7 +619,7 @@ class Bubble {
       return true
     }
 
-    if (this.x > screenWidth + 30) {
+    if (this.x > window.innerWidth + 30) {
       return true
     }
 
@@ -611,7 +627,7 @@ class Bubble {
       return true
     }
 
-    if (this.y > screenHeight + 30){
+    if (this.y > window.innerHeight + 30){
       return true
     }
 
@@ -663,7 +679,7 @@ class Bubble {
 
 
 class Tracker extends Bubble {
-constructor(cords = {x: screenWidth, y: screenWidth}, r, imgSkin = null, theta = 0, speed = 1){
+constructor(cords = {x: window.innerWidth, y: window.innerWidth}, r, imgSkin = null, theta = 0, speed = 1){
   super(cords, r, imgSkin, theta, speed )
   this.x = cords.x;
   this.y = cords.y;
@@ -693,7 +709,7 @@ is_tracker() {
 
 class Hero extends Bubble {
 
-  constructor(cords = {x: screenWidth, y: screenWidth}, r, imgSkin = null, theta = 0, speed = 1) {
+  constructor(cords = {x: window.innerWidth, y: window.innerWidth}, r, imgSkin = null, theta = 0, speed = 1) {
     super(cords, r, imgSkin)
     this.health = 0
     this.history = []
@@ -710,16 +726,16 @@ class Hero extends Bubble {
       cords.x = 0
     }
 
-    if (cords.x > screenWidth) {
-      cords.x = screenWidth
+    if (cords.x > window.innerWidth) {
+      cords.x = window.innerWidth
     }
 
     if (cords.y < 0) {
       cords.y = 0
     }
 
-    if (cords.y > screenHeight){
-      cords.y = screenHeight
+    if (cords.y > window.innerHeight){
+      cords.y = window.innerHeight
     }
 
     this.x = cords.x
