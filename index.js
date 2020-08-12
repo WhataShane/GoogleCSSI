@@ -405,10 +405,10 @@ function gameStateF() {
 
         if (isMobile){
           textSize(window.innerWidth * .1);
-          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD,\nnot the virus.", window.innerWidth/2, window.innerHeight/2);
+          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
         } else {
           textSize(window.innerWidth * .052);
-          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD,\nnot the virus.", window.innerWidth/2, window.innerHeight/2);
+          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
         }
 
 
