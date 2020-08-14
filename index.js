@@ -406,9 +406,19 @@ function gameStateF() {
         if (isMobile){
           textSize(window.innerWidth * .1);
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
+
+          textSize(window.innerWidth * .06);
+          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-10);
+
+
+
+
         } else {
           textSize(window.innerWidth * .052);
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
+
+          textSize(window.innerWidth * .025);
+          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-10);
         }
 
 
