@@ -447,11 +447,12 @@ function gameStateF() {
     }
 
     textSize(45);
-
-
     text("2019", (window.innerWidth/2), 123);
     textSize(30);
     text("Score: "+hero.health, (window.innerWidth/2), 185);
+
+    textSize(23);
+    text("onedayin2019.com", (window.innerWidth/2), window.innerHeight);
 
 
     if (clockScore > 12 && onlyOnceFlag == false) {
