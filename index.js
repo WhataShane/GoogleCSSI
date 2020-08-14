@@ -407,7 +407,7 @@ function gameStateF() {
           textSize(window.innerWidth * .1);
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
 
-          textSize(window.innerWidth * .06);
+          textSize(window.innerWidth * .02);
           text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-60);
 
 
@@ -417,7 +417,7 @@ function gameStateF() {
           textSize(window.innerWidth * .052);
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
 
-          textSize(window.innerWidth * .025);
+          textSize(window.innerWidth * .012);
           text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-10);
         }
 
@@ -461,13 +461,13 @@ function gameStateF() {
     textSize(30);
     text("Score: "+hero.health, (window.innerWidth/2), 185);
 
-    textSize(23);
+    textSize(14);
 
     if (!isMobile) {
-      textSize(27)
+      textSize(16)
     }
 
-    text("onedayin2019.com", (window.innerWidth/2), window.innerHeight - 60);
+    text("onedayin2019.com", (window.innerWidth/2), window.innerHeight - 25);
 
 
     if (clockScore > 12 && onlyOnceFlag == false) {
