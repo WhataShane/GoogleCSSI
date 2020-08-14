@@ -408,7 +408,7 @@ function gameStateF() {
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .02);
-          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-60);
+          text("WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-60);
 
 
 
@@ -418,7 +418,7 @@ function gameStateF() {
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .012);
-          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-10);
+          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-30);
         }
 
 
