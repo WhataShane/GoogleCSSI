@@ -408,7 +408,7 @@ function gameStateF() {
           text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .06);
-          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-10);
+          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-60);
 
 
 
@@ -462,7 +462,12 @@ function gameStateF() {
     text("Score: "+hero.health, (window.innerWidth/2), 185);
 
     textSize(23);
-    text("onedayin2019.com", (window.innerWidth/2), window.innerHeight);
+
+    if (!isMobile) {
+      textSize(27)
+    }
+
+    text("onedayin2019.com", (window.innerWidth/2), window.innerHeight - 60);
 
 
     if (clockScore > 12 && onlyOnceFlag == false) {
