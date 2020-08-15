@@ -180,13 +180,13 @@ function gameStateF() {
     textSize(55);
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
-      textSize(window.innerWidth * .07);
+      textSize(window.innerWidth * .03);
 
       if (isMobile) {
-        textSize(window.innerWidth * .15);
+        textSize(window.innerWidth * .08);
       }
 
-      text("NO ZOOM!", window.innerWidth/2, window.innerHeight/2);
+      text("The word ZOOM\nis reserved for Ferraris\n and the like", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -222,7 +222,7 @@ function gameStateF() {
       }
 
 
-      text('SEE FRIENDS!', window.innerWidth/2, window.innerHeight/2);
+      text('SEE SO MANY\nFRIENDS!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -274,7 +274,7 @@ function gameStateF() {
       }
 
 
-      text('GO TO SUPERMARKET\nCHOOSE OWN PINEAPPLE\nNO ROTTEN INSTACART PINEAPPLE', window.innerWidth/2, window.innerHeight/2);
+      text('Go to supermarkert.\nChoose own pineapple.\nNo rotten Instacart pineapple.', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -291,14 +291,14 @@ function gameStateF() {
     }
 
     if ( (clockScore == 2 && am == false) ) {
-      textSize(window.innerWidth * .03);
+      textSize(window.innerWidth * .02);
 
       if (isMobile) {
-        textSize(window.innerWidth * .08);
+        textSize(window.innerWidth * .07);
       }
 
 
-      text('PEDESTRIANS ARE\n NOT THREATS TO YOUR GRANDPARENTS', window.innerWidth/2, window.innerHeight/2);
+      text('Pedestrians.\n Not yet threats to your grandparents.', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -324,7 +324,7 @@ function gameStateF() {
       }
 
 
-      text('NO BACK-ALLEY HAIRCUTS', window.innerWidth/2, window.innerHeight/2);
+      text('No back-alley haircuts.', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("EATING IN RESTAURANT:\nNORMAL", window.innerWidth/2, window.innerHeight/2);
+      text("Eating in Restaurant:\nNormal", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -373,7 +373,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("REST WELL TO BEAT YOUR COWORKERS\nTO THE OFFICE", window.innerWidth/2, window.innerHeight/2);
+      text("Rest well. You need to go\nsomewhere tomorrow.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -392,7 +392,7 @@ function gameStateF() {
 
     if (hero.health < 0) {
       textSize(window.innerWidth * .1);
-      text("NO ONE WINS 2020", window.innerWidth/2, window.innerHeight/2);
+      text("No one wins 2020", window.innerWidth/2, window.innerHeight/2);
 
       setTimeout(() => {
         onlyOnceEndScreen = true
@@ -405,7 +405,7 @@ function gameStateF() {
 
         if (isMobile){
           textSize(window.innerWidth * .1);
-          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
+          text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .03);
           text("WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-60);
@@ -415,10 +415,10 @@ function gameStateF() {
 
         } else {
           textSize(window.innerWidth * .052);
-          text("BUT WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+          text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .012);
-          text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-30);
+          text("WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-30);
         }
 
 
