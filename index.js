@@ -298,7 +298,7 @@ function gameStateF() {
       }
 
 
-      text('PEDESTRIANS ARE NOT\nTHREATS TO YOUR GRANDPARENTS', window.innerWidth/2, window.innerHeight/2);
+      text('PEDESTRIANS ARE\n NOT THREATS', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
