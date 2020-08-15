@@ -549,7 +549,7 @@ setIntervalX( () => {
 
 setIntervalX( () => {
   for (let x = 0; x < 70; x++){
-    enemies.push(new Tracker({x: window.innerWidth/2+x, y: 50+x }, 30, pineappleImg, (1/3.14)+x, 14));
+    enemies.push(new Tracker({x: window.innerWidth/2+(x*3), y: 50+(x*2) }, 30, pineappleImg, (1/3.14)+x, 14));
   }
 }, 500, 5);
 
