@@ -317,10 +317,10 @@ function gameStateF() {
 
     }
     if ( (clockScore == 5 && am == false) ) {
-      textSize(window.innerWidth * .03);
+      textSize(window.innerWidth * .02);
 
       if (isMobile) {
-        textSize(window.innerWidth * .07);
+        textSize(window.innerWidth * .05);
       }
 
 
@@ -373,7 +373,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("Rest well. Get to the\noffice early.", window.innerWidth/2, window.innerHeight/2);
+      text("Rest well. \nGet to the office early.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -549,7 +549,7 @@ setIntervalX( () => {
 
 setIntervalX( () => {
   for (let x = 0; x < 70; x++){
-    enemies.push(new Tracker({x: window.innerWidth/2, y: 50 }, 30, pineappleImg, (1/3.14)+x, 15));
+    enemies.push(new Tracker({x: window.innerWidth/2+x, y: 50+x }, 30, pineappleImg, (1/3.14)+x, 14));
   }
 }, 500, 5);
 
