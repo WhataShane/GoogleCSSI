@@ -298,7 +298,7 @@ function gameStateF() {
       }
 
 
-      text('Pedestrians.\n Not yet threats to your grandparents.', window.innerWidth/2, window.innerHeight/2);
+      text("They're just Pedestrians.\n Not Threats.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Eating in Restaurant:\nNormal", window.innerWidth/2, window.innerHeight/2);
+      text("Eating in Restaurant:\nPretty Normal", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -373,7 +373,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("Rest well. You need to be\nsomewhere tomorrow.", window.innerWidth/2, window.innerHeight/2);
+      text("Rest well. Get to the\noffice early.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -490,7 +490,7 @@ function gameStateF() {
         textSize(window.innerWidth * .07);
       }
 
-      text("NOW AVOID EVERYTHING", (window.innerWidth/2), 60);
+      text("AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
       text("HP: "+hero.health, (window.innerWidth/2), 140);
 
