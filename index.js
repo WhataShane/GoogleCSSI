@@ -373,7 +373,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("Rest well. You need to go\nsomewhere tomorrow.", window.innerWidth/2, window.innerHeight/2);
+      text("Rest well. You need to be\nsomewhere tomorrow.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -503,9 +503,9 @@ function gameStateF() {
 
           setIntervalX( () => {
             enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .1}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .3}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .3}, 30, pedestrianIMG, -3.14, 9));
             enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .5}, 30, zoomImg, -3.14, 9));
-            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .7}, 30, zoomImg, -3.14, 9));
+            enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .7}, 30, pedestrianIMG, -3.14, 9));
             enemies.push(new Bubble({x: window.innerWidth - 10, y: window.innerHeight * .9}, 30, zoomImg, -3.14, 9));
           }, 900, 100);
 
@@ -525,9 +525,9 @@ function gameStateF() {
 
         setIntervalX( () => {
           enemies.push(new Bubble({x: window.innerWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, pedestrianIMG, -4.712, 9));
           enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
+          enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, pedestrianIMG, -4.712, 9));
           enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
         }, 200, 100);
 
