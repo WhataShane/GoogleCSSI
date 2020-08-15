@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Dining Inside Restaurant:\nNormal", window.innerWidth/2, window.innerHeight/2);
+      text("Dining Inside Restaurant:\nThe Norm", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -373,7 +373,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("Rest well. \nGet to the office early.", window.innerWidth/2, window.innerHeight/2);
+      text("Rest well to\nget to the office early.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
