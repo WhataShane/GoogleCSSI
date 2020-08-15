@@ -222,7 +222,7 @@ function gameStateF() {
       }
 
 
-      text('SEE FRIENDS!', window.innerWidth/2, window.innerHeight/2);
+      text('BE W/ FRIENDS!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("INDOOR RESTAURANT SITTING:\nA LUXURY", window.innerWidth/2, window.innerHeight/2);
+      text("EATING IN RESTAURANT:\nNORMAL", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -415,7 +415,7 @@ function gameStateF() {
 
         } else {
           textSize(window.innerWidth * .052);
-          text("WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21\n\nSPREAD THE WORD", window.innerWidth/2, window.innerHeight/2);
+          text("BUT WEAR A MASK,\nWIN 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
 
           textSize(window.innerWidth * .012);
           text("Contact: WearMaskWin21@gmail.com", window.innerWidth/2, window.innerHeight-30);
