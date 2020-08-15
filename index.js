@@ -222,7 +222,7 @@ function gameStateF() {
       }
 
 
-      text('BE W/ FRIENDS!', window.innerWidth/2, window.innerHeight/2);
+      text('SEE FRIENDS!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
