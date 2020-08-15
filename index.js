@@ -294,7 +294,7 @@ function gameStateF() {
       textSize(window.innerWidth * .02);
 
       if (isMobile) {
-        textSize(window.innerWidth * .07);
+        textSize(window.innerWidth * .05);
       }
 
 
