@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Dining Inside Restaurant:\nThe Norm", window.innerWidth/2, window.innerHeight/2);
+      text("Dining Inside Restaurants:\nThe Norm", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
