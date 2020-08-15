@@ -298,7 +298,7 @@ function gameStateF() {
       }
 
 
-      text("They're just Pedestrians.\n Not Threats.", window.innerWidth/2, window.innerHeight/2);
+      text("Pedestrians.\n Not Threats To Your Life.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -332,7 +332,7 @@ function gameStateF() {
       onlyOnceFive = true
       setIntervalX( () => {
         for (let x = 0; x < 30; x++){
-          enemies.push(new Bubble({x: window.innerWidth - 50 - (Math.random() * 150), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 4));
+          enemies.push(new Bubble({x: 0 + 50 + (Math.random() * 200), y: window.innerHeight - 50 }, 30, haircutIMG, (1/3.14)+x, 4));
 
         }
       }, 600, 8);
@@ -345,7 +345,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Eating in Restaurant:\nPretty Normal", window.innerWidth/2, window.innerHeight/2);
+      text("Dining Inside Restaurant:\nNormal", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
