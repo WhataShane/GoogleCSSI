@@ -127,7 +127,7 @@ function draw() {
     if (decText == true) {
       background(0);
       textSize(window.innerWidth * .065);
-      text("DAWN OF THE FINAL DAY", window.innerWidth/2, window.innerHeight/2);
+      text("Dawn of The Final Day", window.innerWidth/2, window.innerHeight/2);
 
     }
 
@@ -140,7 +140,7 @@ function draw() {
     if (twentyNinteenText == true) {
       background(0);
       textSize(window.innerWidth * .17);
-      text("OF 2019", window.innerWidth/2, window.innerHeight/2);
+      text("Of 2019", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (start == false) {
@@ -152,7 +152,7 @@ function draw() {
     if (start == true) {
       background(0);
       textSize(window.innerWidth * .1);
-      text("24 HOURS REMAIN", window.innerWidth/2, window.innerHeight/2);
+      text("-24 Hours Remain-", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (gameState == false) {
@@ -183,13 +183,13 @@ function gameStateF() {
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
 
-      textSize(window.innerWidth * .03);
+      textSize(window.innerWidth * .02);
 
       if (isMobile) {
-        textSize(window.innerWidth * .08);
+        textSize(window.innerWidth * .07);
       }
 
-      text("The word ZOOM\nis reserved for Ferraris\n and the like", window.innerWidth/2, window.innerHeight/2);
+      text("You're back in 2019.\nYou have 24 hours.\n What do you do?", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -225,7 +225,7 @@ function gameStateF() {
       }
 
 
-      text('SEE FRIENDS...\nIN PERSON!', window.innerWidth/2, window.innerHeight/2);
+      text('See friends\nin person?', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -301,7 +301,7 @@ function gameStateF() {
       }
 
 
-      text("Pedestrians.\n Not Threats To Your Life.", window.innerWidth/2, window.innerHeight/2);
+      text("Greet Sidewalk Pedestrians.\n(Not Threats To Your Life Yet)", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -327,7 +327,7 @@ function gameStateF() {
       }
 
 
-      text('No back-alley haircuts.', window.innerWidth/2, window.innerHeight/2);
+      text('Get a haircut.', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -348,7 +348,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Dining Inside Restaurants:\nThe Norm", window.innerWidth/2, window.innerHeight/2);
+      text("Dine *Inside* Restaurants.\nIt's the norm.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -376,7 +376,7 @@ function gameStateF() {
         textSize(window.innerWidth * .05);
       }
 
-      text("Rest well to\nget to the office early.", window.innerWidth/2, window.innerHeight/2);
+      text("Sleep tight.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
