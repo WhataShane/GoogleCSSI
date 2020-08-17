@@ -540,7 +540,7 @@ function gameStateF() {
             enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
             enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
             enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
-          }, 200, 30);
+          }, 200, 20);
         }
 
 
@@ -552,7 +552,7 @@ function gameStateF() {
 
         moonImg.resize(window.innerWidth, 0)
         if(isMobile){
-            enemies.push(new Moon({x: window.innerWidth/2, y: 0 }, window.innerWidth/2, moonImg, 1.5708, .9));
+          enemies.push(new Moon({x: window.innerWidth/2, y: -500 }, window.innerWidth/2, moonImg, 1.5708, .7));
         } else {
           enemies.push(new Moon({x: window.innerWidth/2, y: -800 }, window.innerWidth/2, moonImg, 1.5708, .7));
         }
