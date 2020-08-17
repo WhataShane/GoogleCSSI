@@ -31,6 +31,7 @@ let onlyOnce20204 = false
 
 let onlyOnceEndScreen = false
 let onlyOnceEndScreen2 = false
+let onlyOnceEndScreen3 = false
 
 let enemies = []
 let enemiesToDelte = []
@@ -79,7 +80,7 @@ function setup() {
       clockScore += 1
     }
   }, 5210)
-//5210
+
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
 
@@ -303,7 +304,7 @@ function gameStateF() {
       }
 
 
-      text("Greet Sidewalk Pedestrians.\n(Not Threats Yet)", window.innerWidth/2, window.innerHeight/2);
+      text("Greet Sidewalk Pedestrians.\n(Not Threats To Your Life Yet)", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -427,13 +428,24 @@ function gameStateF() {
         }, 3250)
         if (onlyOnceEndScreen2) {
 
+          background(0);
+
+
 
           if (isMobile){
+
+            moonImg.resize(window.innerWidth * .7, 0)
+            image(moonImg, window.innerWidth/2, 200)
+
             textSize(window.innerWidth * .1);
-            text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("OneDayIn2019.com\nFinal Score: "+finalScore+"\n Screenshot and challenge your friends\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           } else {
+
+            moonImg.resize(window.innerWidth * .7, 0)
+            image(moonImg, window.innerWidth/2, 200)
+
             textSize(window.innerWidth * .052);
-            text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("OneDayIn2019.com\nFinal Score: "+finalScore+"\n Screenshot and challenge your friends\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           }
 
 
@@ -632,6 +644,12 @@ function updateGameState() {
       arr.splice(index,1);
     } else {
       enemy.render();
+    }
+
+    if (damageState == true && onlyOnceEndScreen3 == false) {
+      console.log('launched')
+      onlyOnceEndScreen3 = true
+      finalScore = hero.health;
     }
 
     if (hero.intersectingWithCircle(enemy) && enemy.outOfBounds() == false && enemy.isMoon() == false) {
