@@ -68,6 +68,7 @@ function setup() {
   zoomImg = loadImage('assets/img/zoom.png')
   restaurantIMG = loadImage('assets/img/restaurant.png')
   sleepIMG = loadImage('assets/img/sleep.png')
+  moonImg = loadImage('assets/img/Moon.png')
 
   cnv = createCanvas(window.innerWidth, window.innerHeight);
 
@@ -76,7 +77,7 @@ function setup() {
       clockScore += 1
     }
   }, 5210)
-
+//5210
    hero = new Hero({x: (window.innerWidth/2), y:window.innerHeight-200}, 30, happyImg);
 
 
@@ -381,6 +382,7 @@ function gameStateF() {
       onlyOnceSeven = true
       let x = 0
       let y = 0
+
       setIntervalX( () => {
         for(let i = 0; i < 10; i++) {
           x = Math.random() * window.innerWidth
@@ -388,6 +390,9 @@ function gameStateF() {
           enemies.push(new Tracker({x: x, y: y}, 30, sleepIMG, 0, 5))
         }
       }, 1000, 5);
+
+
+
     }
 
     if (hero.health < 0) {
@@ -529,26 +534,25 @@ function gameStateF() {
         }, 200, 100);
 
       }
+
       if (clockScore == 20 && onlyOnce20203 == false) {
         onlyOnce20203 = true
 
         setIntervalX( () => {
-  for (let x = 0; x < 70; x++){
-    enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
-  }
-}, 500, 5);
+           for (let x = 0; x < 70; x++){
+            enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
+            }
+        }, 500, 5);
 
-setIntervalX( () => {
-  for (let x = 0; x < 70; x++){
-    enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, friendsImg, (1/3.14)+x, 15));
-  }
-}, 500, 5);
+        setIntervalX( () => {
+          for (let x = 0; x < 70; x++){
+            enemies.push(new Bubble({x: 50, y: window.innerHeight - 50 }, 30, friendsImg, (1/3.14)+x, 15));
+          }
+        }, 500, 5);
 
-setIntervalX( () => {
-  for (let x = 0; x < 70; x++){
-    enemies.push(new Tracker({x: window.innerWidth/2+(x*3), y: 50+(x*2) }, 30, pineappleImg, (1/3.14)+x, 14));
-  }
-}, 500, 5);
+        moonImg.resize(window.innerWidth, 0)
+        enemies.push(new Moon({x: window.innerWidth/2, y: -800 }, window.innerWidth/2, moonImg, 1.5708, .7));
+
 
       }
 
@@ -585,13 +589,13 @@ function updateGameState() {
 
     enemy.move()
 
-    if (enemy.outOfBounds() == true) {
+    if (enemy.outOfBounds() == true && enemy.isMoon() == false) {
       arr.splice(index,1);
     } else {
       enemy.render();
     }
 
-    if (hero.intersectingWithCircle(enemy) && enemy.outOfBounds() == false) {
+    if (hero.intersectingWithCircle(enemy) && enemy.outOfBounds() == false && enemy.isMoon() == false) {
       arr.splice(index,1);
 
       if (damageState == false) {
@@ -606,8 +610,13 @@ function updateGameState() {
 
       }
 
-      return
     }
+
+    if (hero.intersectingWithCircle(enemy) && enemy.isMoon()) {
+      hero.doDamage(1000000);
+    }
+
+
   })
 
   hero.enableControl();
@@ -648,6 +657,11 @@ class Bubble {
   getRadius() {
     return this.r;
   }
+
+  isMoon() {
+    return false
+  }
+
 
   outOfBounds() {
 
@@ -710,6 +724,14 @@ class Bubble {
   }
 
 
+
+}
+
+class Moon extends Bubble {
+
+  isMoon() {
+    return true;
+  }
 
 }
 
