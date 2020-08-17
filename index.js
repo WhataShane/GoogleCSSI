@@ -12,6 +12,7 @@ let startTime = false;
 let am = true
 let isTwentyTwenty = false;
 let cnv
+let finalScore = 0
 
 let onlyOnceOne = false
 let onlyOnceTwo = false
@@ -29,6 +30,7 @@ let onlyOnce20203 = false
 let onlyOnce20204 = false
 
 let onlyOnceEndScreen = false
+let onlyOnceEndScreen2 = false
 
 let enemies = []
 let enemiesToDelte = []
@@ -301,7 +303,7 @@ function gameStateF() {
       }
 
 
-      text("Greet Sidewalk Pedestrians.\n(Not Threats To Your Life Yet)", window.innerWidth/2, window.innerHeight/2);
+      text("Greet Sidewalk Pedestrians.\n(Not Threats Yet)", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
@@ -403,7 +405,7 @@ function gameStateF() {
 
       setTimeout(() => {
         onlyOnceEndScreen = true
-      }, 3500)
+      }, 3250)
 
 
       if (onlyOnceEndScreen) {
@@ -413,17 +415,33 @@ function gameStateF() {
         if (isMobile){
           textSize(window.innerWidth * .1);
           text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
-
-
-
-
-
         } else {
           textSize(window.innerWidth * .052);
           text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+        }
+
+
+
+        setTimeout(() => {
+          onlyOnceEndScreen2 = true
+        }, 3250)
+        if (onlyOnceEndScreen2) {
+
+
+          if (isMobile){
+            textSize(window.innerWidth * .1);
+            text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+          } else {
+            textSize(window.innerWidth * .052);
+            text("But wear a mask,\nwin 2021.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+          }
 
 
         }
+
+
+
+
 
 
       }
