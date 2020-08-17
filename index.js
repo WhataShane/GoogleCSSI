@@ -435,17 +435,17 @@ function gameStateF() {
           if (isMobile){
 
             moonImg.resize(window.innerWidth * .7, 0)
-            image(moonImg, window.innerWidth/2, 200)
+            image(moonImg, window.innerWidth/2, 160)
 
             textSize(window.innerWidth * .1);
-            text("The OneDayIn2019.com Game\n\nScore: "+finalScore+"\nScreenshot & Send\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("\n\n\nThe\nOneDayIn2019.com\nGame\n\nYour Score: "+finalScore+"\nScreenshot\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           } else {
 
             moonImg.resize(window.innerWidth * .3, 0)
-            image(moonImg, 160, 160)
+            image(moonImg, 200, 200)
 
             textSize(window.innerWidth * .025);
-            text("The OneDayIn2019.com Game\n\nScore: "+finalScore+"\n\nScreenshot & Send\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("The\nOneDayIn2019.com\nGame\n\nYour Score: "+finalScore+"\n\nScreenshot & Send\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           }
 
 
