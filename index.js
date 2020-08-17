@@ -434,11 +434,11 @@ function gameStateF() {
 
           if (isMobile){
 
-            moonImg.resize(window.innerWidth * .7, 0)
-            image(moonImg, window.innerWidth/2, 160)
+            moonImg.resize(window.innerWidth * .5, 0)
+            image(moonImg, window.innerWidth/2, 100)
 
             textSize(window.innerWidth * .06);
-            text("\n\n\nOneDayIn2019.com\nGame\n\nScore: "+finalScore+"\n\nScreenshot.\nChallenge friends.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("\n\nOneDayIn2019.com\nGame\n\nScore: "+finalScore+"\n\nScreenshot.\nChallenge friends.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           } else {
 
             moonImg.resize(window.innerWidth * .3, 0)
