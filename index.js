@@ -304,7 +304,7 @@ function gameStateF() {
       }
 
 
-      text("Greet Sidewalk Pedestrians.\n(Not Yet Threats)", window.innerWidth/2, window.innerHeight/2);
+      text("Greet Sidewalk Pedestrians.\nNot Yet Threats.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
