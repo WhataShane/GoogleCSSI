@@ -525,13 +525,25 @@ function gameStateF() {
 
         onlyOnce20202 = true
 
-        setIntervalX( () => {
-          enemies.push(new Bubble({x: window.innerWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
-          enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
-        }, 200, 100);
+        if (!isMobile) {
+          setIntervalX( () => {
+            enemies.push(new Bubble({x: window.innerWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
+          }, 200, 100);
+        } else {
+          setIntervalX( () => {
+            enemies.push(new Bubble({x: window.innerWidth * .1, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .3, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .5, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .7, y: 10}, 30, zoomImg, -4.712, 9));
+            enemies.push(new Bubble({x: window.innerWidth * .9, y: 10}, 30, zoomImg, -4.712, 9));
+          }, 200, 30);
+        }
+
+
 
       }
 
@@ -540,7 +552,7 @@ function gameStateF() {
 
         moonImg.resize(window.innerWidth, 0)
         if(isMobile){
-            enemies.push(new Moon({x: window.innerWidth/2, y: -300 }, window.innerWidth/2, moonImg, 1.5708, .9));
+            enemies.push(new Moon({x: window.innerWidth/2, y: 0 }, window.innerWidth/2, moonImg, 1.5708, .9));
         } else {
           enemies.push(new Moon({x: window.innerWidth/2, y: -800 }, window.innerWidth/2, moonImg, 1.5708, .7));
         }
