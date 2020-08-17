@@ -126,8 +126,9 @@ function draw() {
 
     if (decText == true) {
       background(0);
-      textSize(window.innerWidth * .1);
-      text("YOU'RE BACK IN", window.innerWidth/2, window.innerHeight/2);
+      textSize(window.innerWidth * .065);
+      text("DAWN OF THE FINAL DAY", window.innerWidth/2, window.innerHeight/2);
+
     }
 
     if (twentyNinteenText == false) {
@@ -138,8 +139,8 @@ function draw() {
 
     if (twentyNinteenText == true) {
       background(0);
-      textSize(window.innerWidth * .36);
-      text("2019", window.innerWidth/2, window.innerHeight/2);
+      textSize(window.innerWidth * .17);
+      text("OF 2019", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (start == false) {
@@ -150,8 +151,8 @@ function draw() {
 
     if (start == true) {
       background(0);
-      textSize(window.innerWidth * .2);
-      text("REJOICE", window.innerWidth/2, window.innerHeight/2);
+      textSize(window.innerWidth * .1);
+      text("24 HOURS REMAIN", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (gameState == false) {
@@ -181,6 +182,7 @@ function gameStateF() {
     textSize(55);
 
     if ((clockScore == 6 || clockScore == 7) && am == true) {
+
       textSize(window.innerWidth * .03);
 
       if (isMobile) {
@@ -223,7 +225,7 @@ function gameStateF() {
       }
 
 
-      text('SEE SO MANY\nFRIENDS!', window.innerWidth/2, window.innerHeight/2);
+      text('SEE FRIENDS...\nIN PERSON!', window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
