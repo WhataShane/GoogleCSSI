@@ -440,10 +440,6 @@ function gameStateF() {
             textSize(window.innerWidth * .06);
             text("\n\nOneDayIn2019.com\nGame\n\nScore: "+finalScore+"\n\nScreenshot.\nChallenge friends.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           } else {
-
-            moonImg.resize(window.innerWidth * .3, 0)
-            image(moonImg, 250, 250)
-
             textSize(window.innerWidth * .025);
             text("\nOneDayIn2019.com\nGame\n\nScore: "+finalScore+"\n\nScreenshot.\nChallenge friends.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           }
