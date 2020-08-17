@@ -445,7 +445,7 @@ function gameStateF() {
             image(moonImg, 200, 200)
 
             textSize(window.innerWidth * .025);
-            text("The\nOneDayIn2019.com\nGame\n\nYour Score: "+finalScore+"\n\nScreenshot & Send\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("The\nOneDayIn2019.com\nGame\n\nYour Score: "+finalScore+"\n\nScreenshot\nChallenge friends.\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           }
 
 
