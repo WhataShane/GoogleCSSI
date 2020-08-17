@@ -538,6 +538,14 @@ function gameStateF() {
       if (clockScore == 20 && onlyOnce20203 == false) {
         onlyOnce20203 = true
 
+        moonImg.resize(window.innerWidth, 0)
+        if(isMobile){
+            enemies.push(new Moon({x: window.innerWidth/2, y: -300 }, window.innerWidth/2, moonImg, 1.5708, .9));
+        } else {
+          enemies.push(new Moon({x: window.innerWidth/2, y: -800 }, window.innerWidth/2, moonImg, 1.5708, .7));
+        }
+
+
         setIntervalX( () => {
            for (let x = 0; x < 70; x++){
             enemies.push(new Bubble({x: window.innerWidth - 50, y: window.innerHeight - 50 }, 30, zoomImg, (1/3.14)+x, 15));
@@ -550,8 +558,7 @@ function gameStateF() {
           }
         }, 500, 5);
 
-        moonImg.resize(window.innerWidth, 0)
-        enemies.push(new Moon({x: window.innerWidth/2, y: -800 }, window.innerWidth/2, moonImg, 1.5708, .7));
+
 
 
       }
