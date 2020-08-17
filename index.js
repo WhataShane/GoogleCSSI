@@ -438,14 +438,14 @@ function gameStateF() {
             image(moonImg, window.innerWidth/2, 200)
 
             textSize(window.innerWidth * .1);
-            text("OneDayIn2019.com\n\nFinal Score: "+finalScore+"\nScreenshot and challenge your friends to play\nPost to #WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            text("The OneDayIn2019.com Game\n\nFinal Score: "+finalScore+"\nScreenshot & Send\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           } else {
 
-            moonImg.resize(window.innerWidth * .7, 0)
-            image(moonImg, window.innerWidth/2, 200)
+            moonImg.resize(window.innerWidth * .3, 0)
+            image(moonImg, 160, 160)
 
-            textSize(window.innerWidth * .052);
-            text("OneDayIn2019.com\nFinal Score: "+finalScore+"\nScreenshot and challenge your friends to play\nPost to #WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
+            textSize(window.innerWidth * .025);
+            text("The OneDayIn2019.com Game\n\nScore: "+finalScore+"\n\nScreenshot & Send\n\n#WearMaskWin21", window.innerWidth/2, window.innerHeight/2);
           }
 
 
