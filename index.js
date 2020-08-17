@@ -494,7 +494,7 @@ function gameStateF() {
         textSize(window.innerWidth * .07);
       }
 
-      text("AVOID EVERYTHING", (window.innerWidth/2), 60);
+      text("NOW AVOID EVERYTHING", (window.innerWidth/2), 60);
       textSize(50);
       text("HP: "+hero.health, (window.innerWidth/2), 140);
 
