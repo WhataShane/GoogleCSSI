@@ -152,7 +152,7 @@ function draw() {
     if (start == true) {
       background(0);
       textSize(window.innerWidth * .1);
-      text("-24 Hours Remain-", window.innerWidth/2, window.innerHeight/2);
+      text("24 Hours Remain", window.innerWidth/2, window.innerHeight/2);
     }
 
     if (gameState == false) {
@@ -348,7 +348,7 @@ function gameStateF() {
         textSize(window.innerWidth * .06);
       }
 
-      text("Dine *Inside* Restaurants.\nIt's the norm.", window.innerWidth/2, window.innerHeight/2);
+      text("Dine inside a restaurant.", window.innerWidth/2, window.innerHeight/2);
       textSize(55);
     }
 
